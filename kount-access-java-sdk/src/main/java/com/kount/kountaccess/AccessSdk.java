@@ -1033,7 +1033,7 @@ public class AccessSdk {
 	 *
 	 * @return A CloseableHttpClient object.
 	 */
-	CloseableHttpClient getHttpClient() {
+	protected CloseableHttpClient getHttpClient() {
 		return HttpClients.createDefault();
 	}
 
