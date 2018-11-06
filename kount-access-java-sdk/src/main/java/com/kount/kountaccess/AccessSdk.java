@@ -905,7 +905,8 @@ public class AccessSdk {
 	 * Handles the get request for the device info
 	 */
 	private String getRequest(String urlString) throws AccessException {
-		try (CloseableHttpClient client = getHttpClient()) {
+		try {
+			CloseableHttpClient client = getHttpClient();
 			HttpGet request = this.getHttpGet(urlString);
 			request.addHeader("Authorization", this.getAuthorizationHeader());
 			request.addHeader("Content-Type", "JSON");
@@ -940,7 +941,8 @@ public class AccessSdk {
 	 *             Thrown if the URL is bad or we can't connect or parse the response.
 	 */
 	private String postRequest(String urlString, List<NameValuePair> values) throws AccessException {
-		try (CloseableHttpClient client = getHttpClient()) {
+		try {
+			CloseableHttpClient client = getHttpClient();
 			HttpPost request = getHttpPost(urlString);
 			request.addHeader("Authorization", this.getAuthorizationHeader());
 			HttpEntity entity = new UrlEncodedFormEntity(values);
